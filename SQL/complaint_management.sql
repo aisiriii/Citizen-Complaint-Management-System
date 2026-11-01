@@ -249,3 +249,15 @@ SELECT COUNT(*) AS Total_Audit_Records FROM Complaint_Status_Audit;
 SELECT * FROM Complaint_Details LIMIT 20;
 
 -- End of safe enhancement script.
+
+START TRANSACTION;
+
+UPDATE Complaint
+SET Priority = 'High'
+WHERE Complaint_ID = 9902;
+
+COMMIT;
+
+SELECT Complaint_ID, Priority
+FROM Complaint
+WHERE Complaint_ID = 9902;
